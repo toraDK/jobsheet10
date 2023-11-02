@@ -52,10 +52,17 @@ public class BioskopWithScanner27 {
                     break;
                     }
                 case 2:
-                    
+                    for(int i = 0; i < penonton.length; i++){
+                        for(int a = 0; a < penonton[i].length; a++){
+                            if (penonton[i][a] == null) {
+                                penonton[i][a] = "***";
+                            }
+                            System.out.println("Nama penonton pada baris ke-" + i + " kolom ke-" + (a + 1) + ": " + penonton[i][a]);
+                        }
+                    }
                     break;
                 case 3:
-                    
+                    System.exit(0);
                     break;
                 default:
                     break;
