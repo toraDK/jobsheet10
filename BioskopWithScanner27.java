@@ -13,35 +13,44 @@ public class BioskopWithScanner27 {
             System.out.println("-Menu 3: Exit ");
             System.out.println("Pilih Menu");
             int menu = sc.nextInt();
+            
 
             switch (menu) {
                 case 1:
-                    System.out.print("Masukkan nama: "); 
-                String nama = sc.nextLine(); 
-                
-                System.out.print("Masukkan baris: ");
-                int baris = sc.nextInt(); 
-                
-                System.out.print("Masukkan kolom: ");
-                int kolom = sc.nextInt();
-                sc.nextLine();
+                    while(true){
+                        sc.nextLine();
+                        System.out.print("Masukkan nama: "); 
+                        String nama = sc.nextLine(); 
+                        
+                        System.out.print("Masukkan baris: ");
+                        int baris = sc.nextInt(); 
+                        
+                        System.out.print("Masukkan kolom: ");
+                        int kolom = sc.nextInt();
+                        sc.nextLine();
 
-                if(baris<1 || baris>4){
-                    if(kolom<1 || kolom>2){
-                        System.out.println("Kursi Tidak Tersedia");
-                        return;
+                        if(baris<1 || baris>4){
+                            if(kolom<1 || kolom>2){
+                                System.out.println("Kursi Tidak Tersedia");
+                                break;
+                            }
+                        }
+
+                        if (penonton[baris - 1][kolom - 1] != null) {
+                            System.out.println("Kursi telah terisi");
+                            continue;
+                        }
+
+                        penonton [baris-1][kolom-1] = nama;
+
+                        System.out.print("Input penonton lainnya? (y/n): "); 
+                        String next = sc.nextLine();
+                        
+                        if (next.equalsIgnoreCase("n")) { 
+                            break;
+                        }
+                    break;
                     }
-                }
-
-                penonton [baris-1][kolom-1] = nama;
-
-                System.out.print("Input penonton lainnya? (y/n): "); 
-                String next = sc.nextLine();
-                
-                if (next.equalsIgnoreCase("n")) { 
-                    break;
-                }
-                    break;
                 case 2:
                     
                     break;
@@ -50,25 +59,6 @@ public class BioskopWithScanner27 {
                     break;
                 default:
                     break;
-            }
-
-            System.out.print("Masukkan nama: "); 
-            String nama = sc.nextLine(); 
-            
-            System.out.print("Masukkan baris: ");
-            int baris = sc.nextInt(); 
-            
-            System.out.print("Masukkan kolom: ");
-            int kolom = sc.nextInt();
-            sc.nextLine();
-
-            penonton [baris-1][kolom-1] = nama;
-
-            System.out.print("Input penonton lainnya? (y/n): "); 
-            String next = sc.nextLine();
-            
-            if (next.equalsIgnoreCase("n")) { 
-                break;
             }
         }
     }
